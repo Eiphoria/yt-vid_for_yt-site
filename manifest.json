@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YTvideo for YTsite",
+  "version": "1.0",
+  "description": "Replace embedded YouTube videos with a placeholder image that links to YouTube.",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "48": "icon.png"
+  }
+}
